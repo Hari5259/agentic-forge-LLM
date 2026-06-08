@@ -1,0 +1,32 @@
+# AgentForge - Requirements
+# A No-Code Custom AI Agents Builder
+
+# Core Framework
+streamlit>=1.28.0
+
+# LangChain for agent orchestration
+langchain>=0.1.0
+langchain-community>=0.0.10
+
+# Ollama integration (local LLM)
+ollama>=0.1.0
+
+# Vector Database
+chromadb>=0.4.0
+
+# Document Processing
+pypdf>=3.0.0
+python-docx>=1.0.0
+docx2txt>=0.8
+
+# Embeddings
+sentence-transformers>=2.2.0
+
+# Database
+# SQLite is built-in to Python
+
+# HTTP requests (for Ollama API checks)
+requests>=2.28.0
+
+# Utilities
+python-dateutil>=2.8.0
