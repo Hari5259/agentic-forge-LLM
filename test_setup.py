@@ -6,6 +6,12 @@ import os
 
 os.chdir(r"C:\Users\HP\OneDrive\Desktop\aim26")
 
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 print("=" * 60)
 print("COMMAND 1: Running python setup.py")
 print("=" * 60)

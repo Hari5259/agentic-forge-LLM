@@ -5,6 +5,12 @@ Run this to check what's working and what's not.
 import sys
 import os
 
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 print("=" * 50)
 print("🔍 AgentForge Diagnostics")
 print("=" * 50)

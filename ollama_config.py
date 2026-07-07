@@ -26,19 +26,18 @@ def get_llm(model: str = DEFAULT_MODEL, temperature: float = 0.7, streaming: boo
     Returns:
         Configured Ollama LLM instance
     """
-    callback_manager = None
+    kwargs = {
+        "model": model,
+        "base_url": OLLAMA_BASE_URL,
+        "temperature": temperature,
+    }
     if streaming:
-        callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
+        kwargs["callbacks"] = [StreamingStdOutCallbackHandler()]
     
-    return Ollama(
-        model=model,
-        base_url=OLLAMA_BASE_URL,
-        temperature=temperature,
-        callback_manager=callback_manager,
-    )
+    return Ollama(**kwargs)
 
 
-def get_embeddings(model: str = DEFAULT_MODEL):
+def get_embeddings(model: str = None):
     """
     Initialize and return Ollama embeddings for vector operations.
     
@@ -48,6 +47,16 @@ def get_embeddings(model: str = DEFAULT_MODEL):
     Returns:
         Configured OllamaEmbeddings instance
     """
+    if model is None:
+        # Detect if we have an embedding-specific model
+        available = list_available_models()
+        embed_models = [m for m in available if "embed" in m]
+        if embed_models:
+            model = embed_models[0]
+        else:
+            # Fallback to nomic-embed-text or DEFAULT_MODEL
+            model = "nomic-embed-text" if "nomic-embed-text" in available else DEFAULT_MODEL
+            
     return OllamaEmbeddings(
         model=model,
         base_url=OLLAMA_BASE_URL,

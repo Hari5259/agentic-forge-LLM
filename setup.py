@@ -16,6 +16,11 @@ DIRECTORIES = [
 
 def setup():
     """Create all required directories and verify installation."""
+    if hasattr(sys.stdout, 'reconfigure'):
+        try:
+            sys.stdout.reconfigure(encoding='utf-8')
+        except Exception:
+            pass
     print("=" * 50)
     print("🤖 AgentForge Setup")
     print("=" * 50)

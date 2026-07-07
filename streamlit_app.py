@@ -53,16 +53,28 @@ st.markdown("""
         border-left: 4px solid #667eea;
     }
     .chat-user {
-        background: #e3f2fd;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px 0;
+        background: #2563eb;
+        color: #ffffff !important;
+        border-radius: 12px 12px 0 12px;
+        padding: 12px 16px;
+        margin: 8px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .chat-user * {
+        color: #ffffff !important;
     }
     .chat-assistant {
-        background: #f5f5f5;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px 0;
+        background: #f8fafc;
+        color: #0f172a !important;
+        border-radius: 12px 12px 12px 0;
+        padding: 12px 16px;
+        margin: 8px 0;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .chat-assistant * {
+        color: #0f172a !important;
     }
     .status-online {
         color: #28a745;
